@@ -6,10 +6,10 @@
 	<integer>12</integer>
 	<key>logs</key>
 	<dict>
-		<key>057F0EBD-327C-4E65-B229-E09D166D554D</key>
+		<key>7B45C936-856D-479F-975E-7E61DCBDAE68</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>535C91F5-BA25-4CB1-96FD-1F5258E92BD5</string>
+			<string>1E3D043D-575E-4113-9748-01307E0E97FD</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -30,7 +30,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.unit.cocoaUnitTest</string>
 			<key>fileName</key>
-			<string>Test-Speedometer-2026.05.15_16-33-18--0400.xcresult</string>
+			<string>Test-Speedometer-2026.05.15_16-52-44--0400.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasPrimaryLog</key>
@@ -57,72 +57,13 @@
 			<key>signature</key>
 			<string>Test Speedometer</string>
 			<key>timeStartedRecording</key>
-			<real>800569998.68874705</real>
+			<real>800571164.26162696</real>
 			<key>timeStoppedRecording</key>
-			<real>800570005.38829303</real>
+			<real>800571172.18439698</real>
 			<key>title</key>
 			<string>Test Speedometer</string>
 			<key>uniqueIdentifier</key>
-			<string>057F0EBD-327C-4E65-B229-E09D166D554D</string>
-		</dict>
-		<key>F424BDA1-7988-4C63-AB41-9F63B5C0C448</key>
-		<dict>
-			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>98EC1926-EA1A-4C9B-A9C4-515FF1ED7307</string>
-			<key>auxiliaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>0</integer>
-			</dict>
-			<key>className</key>
-			<string>IDESchemeActionsInvocationRecord</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>com.apple.dt.unit.cocoaUnitTest</string>
-			<key>fileName</key>
-			<string>Test-Speedometer-2026.05.15_16-45-18--0400.xcresult</string>
-			<key>hasAuxiliaryLog</key>
-			<true/>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>0</integer>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>Speedometer project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>Speedometer</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Test Speedometer</string>
-			<key>timeStartedRecording</key>
-			<real>800570718.221609</real>
-			<key>timeStoppedRecording</key>
-			<real>800570724.52082896</real>
-			<key>title</key>
-			<string>Test Speedometer</string>
-			<key>uniqueIdentifier</key>
-			<string>F424BDA1-7988-4C63-AB41-9F63B5C0C448</string>
+			<string>7B45C936-856D-479F-975E-7E61DCBDAE68</string>
 		</dict>
 	</dict>
 </dict>

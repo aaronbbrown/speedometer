@@ -5,7 +5,7 @@ import SwiftUI
 // and displays the digital speed value at the bottom center.
 struct AnalogSpeedometerView: View {
     let speed: Double
-    let maxSpeed: Double = 120  // Dial goes from 0 to 120
+    let maxSpeed: Double
     let unit: SpeedUnit
     
     var body: some View {
@@ -48,22 +48,25 @@ struct AnalogSpeedometerView: View {
         }
     }
     
-    // Draw the dial markings: tick marks and numbers at 10-unit increments
+    // Draw the dial markings: tick marks and numbers scaled to maxSpeed
     private func drawDialMarkings(context: GraphicsContext, size: CGSize) {
         let radius: CGFloat = 135
         let center = CGPoint(x: 140, y: 140)
         let tickRadius: CGFloat = 120
         let numberRadius: CGFloat = 100
-        
-        // Draw from 0 to 120 in 10-unit increments
-        for i in stride(from: 0, through: 12, by: 1) {
-            let value = Double(i) * 10
-            // Convert value to angle: 0 is at lower-left (135°), 120 is at bottom-right (45°)
-            // Total range is 270° for values 0-120
+
+        // Pick a tick step that produces ~12 ticks across the dial.
+        // This keeps the gauge readable whether the max is 10 or 200.
+        let tickStep = niceTickStep(for: maxSpeed)
+        let tickCount = Int((maxSpeed / tickStep).rounded())
+
+        for i in 0...tickCount {
+            let value = Double(i) * tickStep
+            // 0 at lower-left (135°), maxSpeed at lower-right (405°): clockwise over the top
             let angleProgress = value / maxSpeed
-            let angle = 135 + angleProgress * 270  // 135° to 405° (sweeps clockwise over the top)
+            let angle = 135 + angleProgress * 270
             let radians = CGFloat(angle * .pi / 180)
-            
+
             let tickStart = CGPoint(
                 x: center.x + tickRadius * cos(radians),
                 y: center.y + tickRadius * sin(radians)
@@ -72,27 +75,35 @@ struct AnalogSpeedometerView: View {
                 x: center.x + radius * cos(radians),
                 y: center.y + radius * sin(radians)
             )
-            
+
             // Draw tick mark
             var path = Path()
             path.move(to: tickStart)
             path.addLine(to: tickEnd)
             context.stroke(path, with: .color(.white.opacity(0.7)), lineWidth: 2)
-            
-            // Draw number labels at every other tick (0, 20, 40, ..., 120)
+
+            // Draw number labels at every other tick to avoid clutter
             if i % 2 == 0 {
                 let numberPoint = CGPoint(
                     x: center.x + numberRadius * cos(radians),
                     y: center.y + numberRadius * sin(radians)
                 )
-                
+
                 let text = Text("\(Int(value))")
                     .font(.system(size: 14, weight: .semibold, design: .rounded))
                     .foregroundColor(.white.opacity(0.85))
-                
+
                 context.draw(text, at: numberPoint, anchor: .center)
             }
         }
+    }
+
+    // Pick a "nice" tick increment that yields roughly 10-12 ticks across the gauge.
+    // Examples: max=10 → step=1; max=30 → step=2.5 → 5; max=60 → step=5; max=120 → step=10; max=200 → step=20
+    private func niceTickStep(for max: Double) -> Double {
+        let target = max / 12.0
+        let candidates: [Double] = [1, 2, 2.5, 5, 10, 20, 25, 50, 100]
+        return candidates.first(where: { $0 >= target }) ?? max / 12.0
     }
 }
 
@@ -135,7 +146,7 @@ private struct Needle: Shape {
         )
         .ignoresSafeArea()
         
-        AnalogSpeedometerView(speed: 45.3, unit: .mph)
+        AnalogSpeedometerView(speed: 45.3, maxSpeed: 120, unit: .mph)
             .padding()
     }
 }

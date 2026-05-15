@@ -11,6 +11,7 @@
 		11BD7EEA3826C126CED54253 /* AnalogSpeedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA8FA63EC0CD6C7A8DAD80D /* AnalogSpeedometerView.swift */; };
 		36E921FF5C0B7A7D521DD517 /* LocationSpeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B93FB5498C052B520F583 /* LocationSpeedManager.swift */; };
 		47AF7A1E3E0B2C4D0973BDE8 /* SpeedUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7891124BEF37E6767B3B5D /* SpeedUnit.swift */; };
+		741FB9989551EF1E4BBEFC52 /* SpeedRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8B290D6A40B8E1B5D0EC62 /* SpeedRange.swift */; };
 		BB59FB232D1750795B03E76B /* SpeedometerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D400CB7504263D108F27DC /* SpeedometerTests.swift */; };
 		C20840D98F948345351D04D7 /* SpeedometerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE611D2541B57A8A25B53C /* SpeedometerApp.swift */; };
 		F806F05C7A938532088B0277 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612DD356831798E9CD9A504B /* ContentView.swift */; };
@@ -32,6 +33,7 @@
 		495B93FB5498C052B520F583 /* LocationSpeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSpeedManager.swift; sourceTree = "<group>"; };
 		4D7891124BEF37E6767B3B5D /* SpeedUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedUnit.swift; sourceTree = "<group>"; };
 		4DCE611D2541B57A8A25B53C /* SpeedometerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerApp.swift; sourceTree = "<group>"; };
+		5B8B290D6A40B8E1B5D0EC62 /* SpeedRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedRange.swift; sourceTree = "<group>"; };
 		612DD356831798E9CD9A504B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		95D400CB7504263D108F27DC /* SpeedometerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerTests.swift; sourceTree = "<group>"; };
 		D4EDDD09B43141B5BB3C0EE3 /* Speedometer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Speedometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,7 @@
 				612DD356831798E9CD9A504B /* ContentView.swift */,
 				495B93FB5498C052B520F583 /* LocationSpeedManager.swift */,
 				4DCE611D2541B57A8A25B53C /* SpeedometerApp.swift */,
+				5B8B290D6A40B8E1B5D0EC62 /* SpeedRange.swift */,
 				4D7891124BEF37E6767B3B5D /* SpeedUnit.swift */,
 			);
 			path = Speedometer;
@@ -183,6 +186,7 @@
 				11BD7EEA3826C126CED54253 /* AnalogSpeedometerView.swift in Sources */,
 				F806F05C7A938532088B0277 /* ContentView.swift in Sources */,
 				36E921FF5C0B7A7D521DD517 /* LocationSpeedManager.swift in Sources */,
+				741FB9989551EF1E4BBEFC52 /* SpeedRange.swift in Sources */,
 				47AF7A1E3E0B2C4D0973BDE8 /* SpeedUnit.swift in Sources */,
 				C20840D98F948345351D04D7 /* SpeedometerApp.swift in Sources */,
 			);

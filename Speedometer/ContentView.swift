@@ -7,6 +7,19 @@ struct ContentView: View {
     // `@StateObject` keeps one manager instance alive for this screen lifecycle.
     @StateObject private var speedManager = LocationSpeedManager()
 
+    // User-selected gauge range, persisted across app launches.
+    @AppStorage("selectedRange") private var selectedRange: SpeedRange = .auto
+
+    // Computed gauge max: either from the preset, or auto-scaled to current speed.
+    private var gaugeMax: Double {
+        switch selectedRange {
+        case .auto:
+            return SpeedRange.autoMax(forCurrentSpeed: speedManager.displaySpeed, unit: speedManager.selectedUnit)
+        default:
+            return selectedRange.maxValue(for: speedManager.selectedUnit)
+        }
+    }
+
     var body: some View {
         ZStack {
             // Full-screen gradient background.
@@ -23,6 +36,7 @@ struct ContentView: View {
                 // Analog speedometer gauge with embedded digital value.
                 AnalogSpeedometerView(
                     speed: speedManager.displaySpeed,
+                    maxSpeed: gaugeMax,
                     unit: speedManager.selectedUnit
                 )
 
@@ -34,6 +48,15 @@ struct ContentView: View {
                     .frame(maxWidth: 320)
 
                 Spacer()
+
+                // Gauge range preset picker (Auto / Walk / Bike / City / Hwy).
+                Picker("Range", selection: $selectedRange) {
+                    ForEach(SpeedRange.allCases) { range in
+                        Text(range.label).tag(range)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
 
                 // Unit toggle. This updates `selectedUnit` in real time.
                 Picker("Units", selection: $speedManager.selectedUnit) {

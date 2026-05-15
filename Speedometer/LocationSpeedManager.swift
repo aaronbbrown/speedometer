@@ -20,10 +20,14 @@ final class LocationSpeedManager: NSObject, ObservableObject {
     // Updated each time we get a new location sample.
     private var smoothedSpeedInMetersPerSecond: CLLocationSpeed = 0
 
-    // Smoothing factor for EMA (0.2 = 20% new value, 80% old value).
+    // Smoothing factor for EMA (e.g. 0.5 = 50% new value, 50% old value).
     // Lower = smoother/slower response, higher = more responsive/noisier.
-    // 0.2 is a good balance for GPS data.
-    private let smoothingAlpha: CLLocationSpeed = 0.2
+    private let smoothingAlpha: CLLocationSpeed = 0.5
+
+    // If the raw GPS speed is below this threshold (~1 mph / 1.6 kph),
+    // we treat it as "stopped" and snap the smoothed value to it immediately
+    // so the gauge returns to 0 without a long EMA tail.
+    private let stoppedThresholdMetersPerSecond: CLLocationSpeed = 0.5
 
     // User-facing helper text shown under the speed readout.
     // We update this as permission/tracking/GPS quality changes.
@@ -169,10 +173,15 @@ extension LocationSpeedManager: @preconcurrency CLLocationManagerDelegate {
         // Clamp to zero so the user never sees nonsense negatives.
         speedInMetersPerSecond = max(location.speed, 0)
 
-        // Apply exponential moving average to smooth out GPS jitter.
-        // Formula: smoothed = (alpha * raw) + (1 - alpha) * previous
-        // This makes the display less jumpy while staying responsive.
-        smoothedSpeedInMetersPerSecond = (smoothingAlpha * speedInMetersPerSecond) + ((1 - smoothingAlpha) * smoothedSpeedInMetersPerSecond)
+        if speedInMetersPerSecond < stoppedThresholdMetersPerSecond {
+            // Snap to zero when stopped so the needle returns instantly
+            // instead of slowly decaying through the EMA.
+            smoothedSpeedInMetersPerSecond = speedInMetersPerSecond
+        } else {
+            // Apply exponential moving average to smooth out GPS jitter.
+            // Formula: smoothed = (alpha * raw) + (1 - alpha) * previous
+            smoothedSpeedInMetersPerSecond = (smoothingAlpha * speedInMetersPerSecond) + ((1 - smoothingAlpha) * smoothedSpeedInMetersPerSecond)
+        }
 
         // Keep message simple: either actively tracking movement or waiting for movement.
         statusMessage = smoothedSpeedInMetersPerSecond > 0 ? "Tracking live speed." : "Move to begin measuring speed."
