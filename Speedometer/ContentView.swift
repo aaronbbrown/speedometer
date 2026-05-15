@@ -26,8 +26,8 @@ struct ContentView: View {
                     .foregroundStyle(.white.opacity(0.75))
 
                 VStack(spacing: 10) {
-                    // Live speed value from the manager.
-                    Text("\(speedManager.displaySpeed)")
+                    // Live speed value from the manager, formatted to one decimal place.
+                    Text(String(format: "%.1f", speedManager.displaySpeed))
                         .font(.system(size: 110, weight: .bold, design: .rounded))
                         .monospacedDigit()
                         .foregroundStyle(.white)

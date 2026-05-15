@@ -60,9 +60,10 @@ final class LocationSpeedManager: NSObject, ObservableObject {
         refreshStatusMessage()
     }
 
-    // Converts smoothed m/s to the selected unit and rounds to an integer for a clean UI.
-    var displaySpeed: Int {
-        Int(selectedUnit.converted(fromMetersPerSecond: smoothedSpeedInMetersPerSecond).rounded())
+    // Converts smoothed m/s to the selected unit and rounds to one decimal place for precision.
+    var displaySpeed: Double {
+        let converted = selectedUnit.converted(fromMetersPerSecond: smoothedSpeedInMetersPerSecond)
+        return (converted * 10).rounded() / 10
     }
 
     // If permission is denied/restricted, the UI should offer a Settings shortcut

@@ -13,17 +13,17 @@
 				<key>testDefaultUnitFollowsLocale</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.0012010335922241211</real>
+					<real>0.0010629892349243164</real>
 				</dict>
 				<key>testKilometersPerHourConversion</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00057399272918701172</real>
+					<real>0.00068700313568115234</real>
 				</dict>
 				<key>testMilesPerHourConversion</key>
 				<dict>
 					<key>mrnet</key>
-					<real>0.00050997734069824219</real>
+					<real>0.00058603286743164062</real>
 				</dict>
 			</dict>
 		</dict>
