@@ -8,6 +8,14 @@ settings:
     # Global project defaults inherited by targets unless overridden.
     SWIFT_VERSION: 6.0
     IPHONEOS_DEPLOYMENT_TARGET: 17.0
+    # Xcode "recommended settings":
+    # Sandbox user build phase scripts for build correctness.
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    # Generate Swift symbols for entries in String Catalogs.
+    LOCALIZED_STRING_SWIFTUI_SUPPORT: YES
+    STRING_CATALOG_GENERATE_SYMBOLS: YES
+    # Single development team inherited by all targets.
+    DEVELOPMENT_TEAM: A9XG98CQJG
 targets:
   # Main iOS app target.
   Speedometer:
@@ -42,10 +50,9 @@ targets:
         MARKETING_VERSION: 1.0
         TARGETED_DEVICE_FAMILY: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
-        # Code signing: automatic management with personal team.
-        # Override DEVELOPMENT_TEAM if you fork this project.
+        # Code signing: automatic management.
+        # DEVELOPMENT_TEAM is inherited from project-level settings; override there if you fork.
         CODE_SIGN_STYLE: Automatic
-        DEVELOPMENT_TEAM: A9XG98CQJG
         CODE_SIGN_IDENTITY: "Apple Development"
     scheme:
       testTargets:
@@ -66,4 +73,3 @@ targets:
         PRODUCT_NAME: SpeedometerTests
         GENERATE_INFOPLIST_FILE: YES
         CODE_SIGN_STYLE: Automatic
-        DEVELOPMENT_TEAM: A9XG98CQJG
