@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F5DF9951150CBEABEE92252 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAB8050385BA71678643558 /* Assets.xcassets */; };
+		11BD7EEA3826C126CED54253 /* AnalogSpeedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA8FA63EC0CD6C7A8DAD80D /* AnalogSpeedometerView.swift */; };
 		36E921FF5C0B7A7D521DD517 /* LocationSpeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B93FB5498C052B520F583 /* LocationSpeedManager.swift */; };
 		47AF7A1E3E0B2C4D0973BDE8 /* SpeedUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7891124BEF37E6767B3B5D /* SpeedUnit.swift */; };
 		BB59FB232D1750795B03E76B /* SpeedometerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D400CB7504263D108F27DC /* SpeedometerTests.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AA8FA63EC0CD6C7A8DAD80D /* AnalogSpeedometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogSpeedometerView.swift; sourceTree = "<group>"; };
 		2AAB8050385BA71678643558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		495B93FB5498C052B520F583 /* LocationSpeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSpeedManager.swift; sourceTree = "<group>"; };
 		4D7891124BEF37E6767B3B5D /* SpeedUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedUnit.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 		80CD2A570358B5940A501222 /* Speedometer */ = {
 			isa = PBXGroup;
 			children = (
+				1AA8FA63EC0CD6C7A8DAD80D /* AnalogSpeedometerView.swift */,
 				2AAB8050385BA71678643558 /* Assets.xcassets */,
 				612DD356831798E9CD9A504B /* ContentView.swift */,
 				495B93FB5498C052B520F583 /* LocationSpeedManager.swift */,
@@ -123,6 +126,14 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					439E278FAD9213D339C10678 = {
+						DevelopmentTeam = A9XG98CQJG;
+						ProvisioningStyle = Automatic;
+					};
+					AA1080E5702BDD122EFC9BFE = {
+						DevelopmentTeam = A9XG98CQJG;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 0754F5986F76299D1843703D /* Build configuration list for PBXProject "Speedometer" */;
@@ -169,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11BD7EEA3826C126CED54253 /* AnalogSpeedometerView.swift in Sources */,
 				F806F05C7A938532088B0277 /* ContentView.swift in Sources */,
 				36E921FF5C0B7A7D521DD517 /* LocationSpeedManager.swift in Sources */,
 				47AF7A1E3E0B2C4D0973BDE8 /* SpeedUnit.swift in Sources */,
@@ -310,6 +322,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A9XG98CQJG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -329,6 +343,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A9XG98CQJG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -348,8 +364,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A9XG98CQJG;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Speedometer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -369,8 +387,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A9XG98CQJG;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Speedometer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;

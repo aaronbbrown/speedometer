@@ -6,10 +6,10 @@
 	<integer>12</integer>
 	<key>logs</key>
 	<dict>
-		<key>6F21058C-1597-4B48-BBB7-0D3A2E956934</key>
+		<key>057F0EBD-327C-4E65-B229-E09D166D554D</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>60489598-16BE-4FD5-9756-59B7A310FBE8</string>
+			<string>535C91F5-BA25-4CB1-96FD-1F5258E92BD5</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -30,7 +30,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.unit.cocoaUnitTest</string>
 			<key>fileName</key>
-			<string>Test-Speedometer-2026.05.15_16-20-12--0400.xcresult</string>
+			<string>Test-Speedometer-2026.05.15_16-33-18--0400.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasPrimaryLog</key>
@@ -57,18 +57,18 @@
 			<key>signature</key>
 			<string>Test Speedometer</string>
 			<key>timeStartedRecording</key>
-			<real>800569212.71984994</real>
+			<real>800569998.68874705</real>
 			<key>timeStoppedRecording</key>
-			<real>800569220.80998504</real>
+			<real>800570005.38829303</real>
 			<key>title</key>
 			<string>Test Speedometer</string>
 			<key>uniqueIdentifier</key>
-			<string>6F21058C-1597-4B48-BBB7-0D3A2E956934</string>
+			<string>057F0EBD-327C-4E65-B229-E09D166D554D</string>
 		</dict>
-		<key>C396C2D9-9935-467E-BB0E-A2978F69A10E</key>
+		<key>F424BDA1-7988-4C63-AB41-9F63B5C0C448</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>7F2B26C7-FD96-4D57-8126-AF5E22A05DF7</string>
+			<string>98EC1926-EA1A-4C9B-A9C4-515FF1ED7307</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -89,7 +89,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.unit.cocoaUnitTest</string>
 			<key>fileName</key>
-			<string>Test-Speedometer-2026.05.15_16-21-53--0400.xcresult</string>
+			<string>Test-Speedometer-2026.05.15_16-45-18--0400.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasPrimaryLog</key>
@@ -116,13 +116,13 @@
 			<key>signature</key>
 			<string>Test Speedometer</string>
 			<key>timeStartedRecording</key>
-			<real>800569313.02013695</real>
+			<real>800570718.221609</real>
 			<key>timeStoppedRecording</key>
-			<real>800569325.701437</real>
+			<real>800570724.52082896</real>
 			<key>title</key>
 			<string>Test Speedometer</string>
 			<key>uniqueIdentifier</key>
-			<string>C396C2D9-9935-467E-BB0E-A2978F69A10E</string>
+			<string>F424BDA1-7988-4C63-AB41-9F63B5C0C448</string>
 		</dict>
 	</dict>
 </dict>

@@ -20,23 +20,11 @@ struct ContentView: View {
             VStack(spacing: 28) {
                 Spacer()
 
-                // Static heading so the user knows what this number represents.
-                Text("Speed")
-                    .font(.system(size: 24, weight: .semibold, design: .rounded))
-                    .foregroundStyle(.white.opacity(0.75))
-
-                VStack(spacing: 10) {
-                    // Live speed value from the manager, formatted to one decimal place.
-                    Text(String(format: "%.1f", speedManager.displaySpeed))
-                        .font(.system(size: 110, weight: .bold, design: .rounded))
-                        .monospacedDigit()
-                        .foregroundStyle(.white)
-
-                    // Current speed unit (MPH/KPH).
-                    Text(speedManager.selectedUnit.label)
-                        .font(.system(size: 24, weight: .medium, design: .rounded))
-                        .foregroundStyle(.white.opacity(0.82))
-                }
+                // Analog speedometer gauge with embedded digital value.
+                AnalogSpeedometerView(
+                    speed: speedManager.displaySpeed,
+                    unit: speedManager.selectedUnit
+                )
 
                 // Dynamic helper text (permission state, GPS quality, etc.).
                 Text(speedManager.statusMessage)
@@ -78,6 +66,7 @@ struct ContentView: View {
                     .foregroundStyle(.white)
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.vertical, 36)
         }
     }
