@@ -4,10 +4,42 @@ Simple native iPhone speedometer app built with SwiftUI and Core Location.
 
 ## What It Does
 
-- Shows current speed as a large live number.
+- Shows current speed as a large live number alongside an analog gauge.
 - Lets you start and stop tracking.
 - Lets you switch between MPH and KPH.
 - Uses locale measurement defaults on first launch.
+- Lets you choose the gauge's max range, with an Auto mode that scales to your current speed.
+
+## Configuration Options
+
+The app exposes two pickers above the Start/Stop button. Both selections are remembered between launches.
+
+### Units
+
+Toggle between **MPH** and **KPH**. The default follows your device locale on first launch.
+
+### Gauge Range
+
+Choose how high the analog dial reads. Tick spacing adapts automatically to the chosen range.
+
+| Preset | MPH range | KPH range | Use case |
+| ------ | --------- | --------- | -------- |
+| Auto   | dynamic   | dynamic   | Default. Picks the smallest preset that comfortably fits your current speed (with ~30% headroom). |
+| Walk   | 0–10      | 0–15      | Walking, jogging. |
+| Bike   | 0–30      | 0–50      | Cycling, scooters. |
+| City   | 0–60      | 0–100     | Surface-street driving. |
+| Hwy    | 0–120     | 0–200     | Highway / motorway driving. |
+
+Auto mode is the recommended default — leave it on and the gauge will rescale itself as you speed up or slow down.
+
+### Speed Smoothing
+
+Raw GPS speed is noisy, so the displayed value is filtered:
+
+- An exponential moving average (alpha = 0.5) smooths out jitter while staying responsive to changes.
+- When the raw GPS speed drops below ~1 mph the displayed value snaps to 0 immediately, so the needle returns to rest as soon as you stop.
+
+These values live in `LocationSpeedManager.swift` if you want to tune them.
 
 ## Prerequisites
 
