@@ -5,6 +5,66 @@
 	<key>logFormatVersion</key>
 	<integer>12</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>6F21058C-1597-4B48-BBB7-0D3A2E956934</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>60489598-16BE-4FD5-9756-59B7A310FBE8</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.unit.cocoaUnitTest</string>
+			<key>fileName</key>
+			<string>Test-Speedometer-2026.05.15_16-20-12--0400.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Speedometer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Speedometer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Test Speedometer</string>
+			<key>timeStartedRecording</key>
+			<real>800569212.71984994</real>
+			<key>timeStoppedRecording</key>
+			<real>800569220.80998504</real>
+			<key>title</key>
+			<string>Test Speedometer</string>
+			<key>uniqueIdentifier</key>
+			<string>6F21058C-1597-4B48-BBB7-0D3A2E956934</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

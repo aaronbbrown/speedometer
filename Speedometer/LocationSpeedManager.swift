@@ -16,6 +16,15 @@ final class LocationSpeedManager: NSObject, ObservableObject {
     // This is the base value we convert to MPH/KPH for display.
     @Published private(set) var speedInMetersPerSecond: CLLocationSpeed = 0
 
+    // Exponential moving average of the speed to smooth out GPS jitter.
+    // Updated each time we get a new location sample.
+    private var smoothedSpeedInMetersPerSecond: CLLocationSpeed = 0
+
+    // Smoothing factor for EMA (0.2 = 20% new value, 80% old value).
+    // Lower = smoother/slower response, higher = more responsive/noisier.
+    // 0.2 is a good balance for GPS data.
+    private let smoothingAlpha: CLLocationSpeed = 0.2
+
     // User-facing helper text shown under the speed readout.
     // We update this as permission/tracking/GPS quality changes.
     @Published private(set) var statusMessage = "Tap Start to begin measuring your speed."
@@ -51,9 +60,9 @@ final class LocationSpeedManager: NSObject, ObservableObject {
         refreshStatusMessage()
     }
 
-    // Converts raw m/s to the selected unit and rounds to an integer for a clean UI.
+    // Converts smoothed m/s to the selected unit and rounds to an integer for a clean UI.
     var displaySpeed: Int {
-        Int(selectedUnit.converted(fromMetersPerSecond: speedInMetersPerSecond).rounded())
+        Int(selectedUnit.converted(fromMetersPerSecond: smoothedSpeedInMetersPerSecond).rounded())
     }
 
     // If permission is denied/restricted, the UI should offer a Settings shortcut
@@ -90,6 +99,7 @@ final class LocationSpeedManager: NSObject, ObservableObject {
 
         // Reset speed so the UI does not show stale motion after stopping.
         speedInMetersPerSecond = 0
+        smoothedSpeedInMetersPerSecond = 0
 
         // Stop battery/GPS work.
         locationManager.stopUpdatingLocation()
@@ -158,8 +168,13 @@ extension LocationSpeedManager: @preconcurrency CLLocationManagerDelegate {
         // Clamp to zero so the user never sees nonsense negatives.
         speedInMetersPerSecond = max(location.speed, 0)
 
+        // Apply exponential moving average to smooth out GPS jitter.
+        // Formula: smoothed = (alpha * raw) + (1 - alpha) * previous
+        // This makes the display less jumpy while staying responsive.
+        smoothedSpeedInMetersPerSecond = (smoothingAlpha * speedInMetersPerSecond) + ((1 - smoothingAlpha) * smoothedSpeedInMetersPerSecond)
+
         // Keep message simple: either actively tracking movement or waiting for movement.
-        statusMessage = speedInMetersPerSecond > 0 ? "Tracking live speed." : "Move to begin measuring speed."
+        statusMessage = smoothedSpeedInMetersPerSecond > 0 ? "Tracking live speed." : "Move to begin measuring speed."
     }
 
     // Fired when Core Location fails (temporary system/location issue).

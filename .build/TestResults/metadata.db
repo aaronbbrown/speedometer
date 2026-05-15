@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FormatVersion</key>
+	<integer>1</integer>
+	<key>Store</key>
+	<dict>
+		<key>SpeedometerTests</key>
+		<dict>
+			<key>SpeedometerTests</key>
+			<dict>
+				<key>testDefaultUnitFollowsLocale</key>
+				<dict>
+					<key>mrnet</key>
+					<real>0.0012010335922241211</real>
+				</dict>
+				<key>testKilometersPerHourConversion</key>
+				<dict>
+					<key>mrnet</key>
+					<real>0.00057399272918701172</real>
+				</dict>
+				<key>testMilesPerHourConversion</key>
+				<dict>
+					<key>mrnet</key>
+					<real>0.00050997734069824219</real>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>
