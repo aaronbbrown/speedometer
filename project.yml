@@ -1,0 +1,51 @@
+# XcodeGen source-of-truth for the whole Xcode project.
+name: Speedometer
+options:
+  # Keep generation tied to features available in this XcodeGen version.
+  minimumXcodeGenVersion: 2.45.0
+settings:
+  base:
+    # Global project defaults inherited by targets unless overridden.
+    SWIFT_VERSION: 6.0
+    IPHONEOS_DEPLOYMENT_TARGET: 17.0
+targets:
+  # Main iOS app target.
+  Speedometer:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: Speedometer
+        excludes:
+          - Info.plist
+    info:
+      # We maintain plist manually instead of auto-generating one.
+      path: Speedometer/Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.aaronbbrown.speedometer
+        PRODUCT_NAME: Speedometer
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: Speedometer/Info.plist
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    scheme:
+      testTargets:
+        - SpeedometerTests
+
+  # Unit test bundle target.
+  SpeedometerTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - SpeedometerTests
+    dependencies:
+      - target: Speedometer
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.aaronbbrown.speedometerTests
+        PRODUCT_NAME: SpeedometerTests
+        GENERATE_INFOPLIST_FILE: YES
